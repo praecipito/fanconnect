@@ -11,7 +11,7 @@ class Fan::ShirtNumbersController < ApplicationController
       # e atualizamos o campo desejado
       @profile = current_user.profile
       @profile.update(favorite_shirt_number: @shirt_number.number.to_i)
-      # redirect_to new_fan_age_path
+      # redirect_to new_fan_shoe_size
     else
       render :new, status: :unprocessable_entity
     end
