@@ -5,7 +5,6 @@ class Fan::ShoeSizesController < ApplicationController
 
   def create
     @shoe_size = Fan::ShoeSize.new(shoe_size_params)
-    raise
     if @shoe_size.valid?
       # atualizar usuario com o vlor vindo do form
       # Como o profile vai pertencer à um usuário. acessamos o profile do user
