@@ -5,4 +5,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  # HOST sign_up/home/email_address/new
+  # form/shirt_names/new
+  # form/shirt_names
+
+  # form/ages/new
+  # form/ages
+  namespace :fan do
+    resources :shirt_numbers, only: %i[new create]
+  end
 end
+
+
+##
