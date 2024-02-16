@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   # form/ages
   namespace :fan do
     resources :shirt_numbers, only: %i[new create]
+    resources :number_of_children, only: %i[new create]
+
   end
 end
 
