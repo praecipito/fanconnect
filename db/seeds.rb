@@ -7,25 +7,25 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'csv'
 
-# csv_file_path = Rails.root.join('lib', 'seeds', 'profile_data.csv')
+csv_file_path = Rails.root.join('lib', 'seeds', 'profile_data.csv')
 
-# Profile.destroy_all
-# User.destroy_all
+Profile.destroy_all
+User.destroy_all
 
-# counter = 1
-# CSV.foreach(csv_file_path, headers: true, header_converters: :symbol) do |row|
+counter = 1
+CSV.foreach(csv_file_path, headers: true, header_converters: :symbol) do |row|
 
-#   user = User.create! email: "user_#{counter}@gmail.com", password: '123465'
-#   p user
-#   profile = Profile.create!(favorite_shirt_number: row[:numero_de_camisa_preferido], shoe_size: row[:tamanho_do_sapato],
-#     number_of_children: row[:quantidade_de_filhos], height: row[:altura], weight: row[:peso], birth_city: row[:cidade_de_nascimento],
-#     minimum_income: row[:renda].split(" a ")[0].to_i, maximum_income: row[:renda].split(" a ")[1].to_i, favorite_food: row[:comida_favorita],
-#     favorite_drink: row[:bebida_favorita], preferred_look: row[:look_que_mais_combina], favorite_videogame: row[:videogame_favorito],
-#     membership_duration: row[:tempo_de_associacao_torcedor_m], sport_interest: row[:modalidade_esportiva_interesse], merchandising_interest: row[:interesse_em_merchandising],
-#     preferred_communication_channel: row[:canal_de_comunicacao_preferido], user: user)
-#   p profile
-#   counter += 1
-# end
+  user = User.create! email: "user_#{counter}@gmail.com", password: '123465'
+  p user
+  profile = Profile.create!(favorite_shirt_number: row[:numero_de_camisa_preferido], shoe_size: row[:tamanho_do_sapato],
+    number_of_children: row[:quantidade_de_filhos], height: row[:altura], weight: row[:peso], birth_city: row[:cidade_de_nascimento],
+    minimum_income: row[:renda].split(" a ")[0].to_i, maximum_income: row[:renda].split(" a ")[1].to_i, favorite_food: row[:comida_favorita],
+    favorite_drink: row[:bebida_favorita], preferred_look: row[:look_que_mais_combina], favorite_videogame: row[:videogame_favorito],
+    membership_duration: row[:tempo_de_associacao_torcedor_m], sport_interest: row[:modalidade_esportiva_interesse], merchandising_interest: row[:interesse_em_merchandising],
+    preferred_communication_channel: row[:canal_de_comunicacao_preferido], user: user)
+  p profile
+  counter += 1
+end
 
 
 
@@ -40,7 +40,7 @@ CSV.foreach(players_csv_file_path, headers: true, header_converters: :symbol) do
     description: row[:player_text],
     body_image_url: row[:player_full_image_url],
     favorite_shirt_number: row[:shirt_number],
-    height: row[:height],
+    height: row[:height].match(/\d[\.,]\d+/)[0].gsub(',', '').to_i,
     position: row[:position],
     birth_city: row[:birth_city],
     upper_image_url: row[:upper_image_url]

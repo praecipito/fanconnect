@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row justify-content-center" data-controller="sport-interest" data-sport-interest-url-value="/fan/sport_interests">
+    <div class="col-12 col-md-8 col-lg-3">
+      <%= simple_form_for @sport_interest do |f| %>
+        <h1 class="question">Qual é o seu esporte preferido?</h1>
+          <%= f.input :string, as: :string, label: false, wrapper_html: { data: { sport_interest_target: 'wrapper' } }, input_html: { data: { sport_interest_target: 'input', action: 'change->sport-interest#update keyup->sport-interest#update' } }  %>
+        <div class="d-flex justify-content-center">
+          <%= button_tag 'FanMatch!', type: :button, class: 'btn btn-success w-100 d-none', data: { action: 'click->sport-interest#match', sport_interest_target: 'match' } %>
+        </div>
+        <div class="row justify-content-center d-none" data-sport-interest-target='card'>
+          <div class="col-12">
+            <!-- Aqui, você pode renderizar um partial relevante ao contexto de interesse esportivo -->
+            <%= render 'fan/fifa_card' %>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <%= f.submit 'Próximo', class: 'btn btn-success w-50 mt-3', data: { sport_interest_target: 'submit' } %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

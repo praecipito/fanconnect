@@ -1,6 +1,22 @@
-<h1><%= @number_of_child %></h1>
-
-<%= simple_form_for  @number_of_child do |f| %>
-  <%= f.input :number %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center" data-controller="number-of-children" data-number-of-children-url-value="/fan/number_of_children">
+    <div class="col-12 col-md-8 col-lg-3">
+      <%= simple_form_for @number_of_child do |f| %>
+        <h1 class="question">Quantos filhos você tem?</h1>
+          <%= f.input :number, as: :integer, label: false, wrapper_html: { data: { number_of_children_target: 'wrapper' } }, input_html: { data: { number_of_children_target: 'input', action: 'change->number-of-children#update keyup->number-of-children#update' } }  %>
+        <div class="d-flex justify-content-center">
+          <%= button_tag 'Confirmar', type: :button, class: 'btn btn-success w-100 d-none', data: { action: 'click->number-of-children#match', number_of_children_target: 'match' } %>
+        </div>
+        <div class="row justify-content-center d-none" data-number-of-children-target='card'>
+          <div class="col-12">
+            <!-- Aqui, você pode renderizar um partial relevante ao contexto do número de filhos -->
+            <%= render 'fan/fifa_card' %>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <%= f.submit 'Próximo', class: 'btn btn-success w-50 mt-3', data: { number_of_children_target: 'submit' } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
