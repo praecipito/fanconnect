@@ -10,9 +10,20 @@ module Interface
     end
 
     CSV.open(filepath, 'wb') do |csv|
-      csv << %i[full_name shirt_name age position shirt_number player_text birth_date birth_city height player_full_image_url upper_image_url]
+      csv << %i[
+        full_name
+        shirt_name
+        age
+        position
+        shirt_number
+        player_text
+        birth_date
+        birth_city
+        height
+        player_full_image_url
+        upper_image_url
+      ]
       players.each do |p|
-        puts p
         csv << [
           p[:full_name],
           p[:shirt_name],

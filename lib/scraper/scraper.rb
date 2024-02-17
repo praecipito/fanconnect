@@ -35,7 +35,7 @@ def scrape_player(url)
   player_text = doc.search('.row.conteudo-jogador .txt-jogador').text.strip
 
   # Imagem atleta tronco
-  upper_image = doc.search('.item.selecionado img').first.attribute('src').value
+  upper_image_url = doc.search('.item.selecionado img').first.attribute('src').value
 
   # Exgtraindo container com dados do atleta
   player_data = []
@@ -63,7 +63,7 @@ def scrape_player(url)
     birth_city:,
     height:,
     player_full_image_url:,
-    upper_image:
+    upper_image_url:
   }
   player
 end
