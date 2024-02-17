@@ -6,12 +6,9 @@ class Fan::FavoriteDrinksController < ApplicationController
   def create
     @favorite_drink = Fan::FavoriteDrink.new(favorite_drink_params)
     if @favorite_drink.valid?
-      # atualizar usuario com o vlor vindo do form
-      # Como o profile vai pertencer à um usuário. acessamos o profile do user
-      # e atualizamos o campo desejado
       @profile = current_user.profile
       @profile.update(favorite_drink: @favorite_drink)
-      # redirect_to new_fan_age_path
+      redirect_to new_fan_favorite_food_path
     else
       render :new, status: :unprocessable_entity
     end
