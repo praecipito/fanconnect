@@ -1,6 +1,13 @@
-<h1><%= @shirt_number %></h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-3">
+      <h1><%= @shirt_number.class %></h1>
 
-<%= simple_form_for @shirt_number do |f| %>
-  <%= f.input :number %>
-  <%= f.submit %>
-<% end %>
+      <%= simple_form_for @shirt_number do |f| %>
+        <%= f.input :number, as: :integer %>
+        <%= f.submit %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
