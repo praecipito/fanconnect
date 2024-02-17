@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_17_021934) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_17_044849) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_17_021934) do
     t.integer "age"
     t.text "description"
     t.string "body_image_url"
+    t.string "upper_image_url"
   end
 
   create_table "profiles", force: :cascade do |t|
