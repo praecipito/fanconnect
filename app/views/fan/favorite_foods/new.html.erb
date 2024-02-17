@@ -2,7 +2,7 @@
   <div class="row justify-content-center" data-controller="favorite-food" data-favorite-food-url-value="/fan/favorite_foods">
     <div class="col-12 col-md-8 col-lg-3">
       <%= simple_form_for @favorite_food do |f| %>
-        <h1 class="question">Qual é a sua bebida favorita?</h1>
+        <h1 class="question">Qual é a sua comida favorita?</h1>
           <%= f.input :string, as: :string, label: false, wrapper_html: { data: { favorite_food_target: 'wrapper' } }, input_html: { data: { favorite_food_target: 'input', action: 'change->favorite-food#update keyup->favorite-food#update' } }  %>
         <div class="d-flex justify-content-center">
           <%= button_tag 'Confirmar Bebida', type: :button, class: 'btn btn-success w-100 d-none', data: { action: 'click->favorite-food#match', favorite_food_target: 'match' } %>
