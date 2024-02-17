@@ -21,9 +21,10 @@ class Fan::ShirtNumbersController < ApplicationController
   def search
     @player = Player.where(favorite_shirt_number: params[:number])
     respond_to do |format|
-      if @player
+      if @player.present?
         format.json { render json: @player.first }
       else
+        format.json { render json: { shirt_name: 'Abel Ferreira', position: 'Técnico', upper_image_url: "https://sep-bucket-prod.s3.amazonaws.com/wp-content/uploads/2024/01/0015_ABEL-FERREIRA.psd.png" }}
       end
     end
   end

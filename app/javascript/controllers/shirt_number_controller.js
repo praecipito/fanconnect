@@ -45,6 +45,7 @@ export default class extends Controller {
       'Zagueiro': 'ZAG',
       'Meio-Campista': 'MC',
       'Atacante': 'AT',
+      'Técnico': 'TEC'
     }
 
     return positions[name]
