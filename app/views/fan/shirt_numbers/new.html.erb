@@ -1,13 +1,18 @@
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center" data-controller="shirt-number">
     <div class="col-12 col-md-8 col-lg-3">
       <h1><%= @shirt_number.class %></h1>
 
       <%= simple_form_for @shirt_number do |f| %>
-        <%= f.input :number, as: :integer %>
-        <%= f.submit %>
+        <%= f.input :number, as: :integer, input_html: { data: { shirt_number_target: 'input' } }  %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>
 
+      <div class="col-12 col-md-8 col-lg-3">
+        <div class="num-jogador" style="background-image: url(<%= image_path('bg-numero.png') %>)" data-shirt-number-target='result'>
+          <span class='num-camisa'>13</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
