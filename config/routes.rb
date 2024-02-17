@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :height, only: %i[new create]
   # HOST sign_up/home/email_address/new
   # form/shirt_names/new
   # form/shirt_names
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
     resources :birth_cities, only: %i[new create]
     get 'shirt_numbers', to: 'shirt_numbers#search', as: :shirt_number_search
   end
-
 end
 
 
