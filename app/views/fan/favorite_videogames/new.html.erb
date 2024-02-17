@@ -1,0 +1,6 @@
+<h1><%= @favorite_videogame %></h1>
+
+<%= simple_form_for @favorite_videogame do |f| %>
+  <%= f.input :string %>
+  <%= f.submit %>
+<% end %>
