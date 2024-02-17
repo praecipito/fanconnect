@@ -7,7 +7,7 @@ class Fan::BirthCitiesController < ApplicationController
     @birth_city = Fan::BirthCity.new(birth_city_params)
     if @birth_city.valid?
       @profile = current_user.profile
-      @profile.update(birth_city: @birth_city)
+      @profile.update(birth_city: @birth_city.string)
       redirect_to new_fan_favorite_drink_path
     else
       render :new, status: :unprocessable_entity
@@ -18,6 +18,6 @@ class Fan::BirthCitiesController < ApplicationController
   private
 
   def birth_city_params
-    params.require(:fan_birth_city).permit(:city)
+    params.require(:fan_birth_city).permit(:string)
   end
 end

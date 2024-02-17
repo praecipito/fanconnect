@@ -7,7 +7,7 @@ class Fan::PreferredChannelsController < ApplicationController
     @preferred_channel = Fan::PreferredChannel.new(preferred_channel_params)
     if @preferred_channel.valid?
       @profile = current_user.profile
-      @profile.update(preferred_communication_channel: @preferred_channel)
+      @profile.update(preferred_communication_channel: @preferred_channel.string)
       # redirect_to new_fan_age_path
     else
       render :new, status: :unprocessable_entity
@@ -18,6 +18,6 @@ class Fan::PreferredChannelsController < ApplicationController
   private
 
   def preferred_channel_params
-    params.require(:fan_preferred_channel).permit(:prefiro)
+    params.require(:fan_preferred_channel).permit(:string)
   end
 end

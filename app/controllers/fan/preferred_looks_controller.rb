@@ -7,7 +7,7 @@ class Fan::PreferredLooksController < ApplicationController
     @preferred_look = Fan::PreferredLook.new(preferred_look_params)
     if @preferred_look.valid?
       @profile = current_user.profile
-      @profile.update(preferred_look: @preferred_look)
+      @profile.update(preferred_look: @preferred_look.string)
       redirect_to new_fan_number_of_child_path
     else
       render :new, status: :unprocessable_entity

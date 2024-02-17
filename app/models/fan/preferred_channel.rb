@@ -3,7 +3,7 @@ module Fan
     include ActiveModel::Model
     CHANNEL = ['WhatsApp', 'Email', 'SMS', 'Ligação', 'Telegram']
 
-    attr_accessor :prefiro
-    validates :prefiro, presence: true
+    attr_accessor :string
+    validates :string, presence: true
   end
 end

@@ -7,7 +7,7 @@ class Fan::SportInterestsController < ApplicationController
     @sport_interest = Fan::SportInterest.new(sport_interest_params)
     if @sport_interest.valid?
       @profile = current_user.profile
-      @profile.update(sport_interest: @sport_interest)
+      @profile.update(sport_interest: @sport_interest.string)
       redirect_to new_fan_preferred_look_path
     else
       render :new, status: :unprocessable_entity

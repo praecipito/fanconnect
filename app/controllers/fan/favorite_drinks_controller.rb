@@ -7,7 +7,7 @@ class Fan::FavoriteDrinksController < ApplicationController
     @favorite_drink = Fan::FavoriteDrink.new(favorite_drink_params)
     if @favorite_drink.valid?
       @profile = current_user.profile
-      @profile.update(favorite_drink: @favorite_drink)
+      @profile.update(favorite_drink: @favorite_drink.string)
       redirect_to new_fan_favorite_food_path
     else
       render :new, status: :unprocessable_entity
