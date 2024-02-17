@@ -1,0 +1,25 @@
+<div class="fut-player-card" style="background-image: url(<%= image_path 'card_bg.png' %>);">
+  <!-- Player Card Top-->
+  <div class="player-card-top">
+    <div class="player-master-info">
+      <div class="player-position"><span data-shirt-number-target='position'>RW</span></div>
+    </div>
+    <div class="player-picture">
+      <%= image_tag 'Luan-14.png', data: { shirt_number_target: 'image' } %>
+      <div class="player-extra">
+      </div>
+    </div>
+  </div>
+  <!-- Player Card Bottom-->
+  <div class="player-card-bottom">
+    <div class="player-info">
+      <!-- Player Name-->
+      <div class="player-name"><span data-shirt-number-target='name'>Kayke</span></div>
+      <!-- Player Features-->
+      <div class="player-features flex-column align-items-center">
+        <div class="player-feature-title mb-2">Numero</div>
+        <div class="player-feature-value fw-bold fs-2" data-shirt-number-target='result'>13</div>
+      </div>
+    </div>
+  </div>
+</div>
