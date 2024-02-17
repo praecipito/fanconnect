@@ -2,6 +2,7 @@ class Fan::HeightsController < ApplicationController
   def new
     @height = Fan::Height.new
   end
+
   def create
     @height = Fan::Height.new(height_params)
     if @height.valid?
@@ -15,7 +16,7 @@ class Fan::HeightsController < ApplicationController
 
   private
 
-  def hights_params
-    params.require(:fan_hights).permit(:number) 
+  def height_params
+    params.require(:fan_height).permit(:number)
   end
 end
