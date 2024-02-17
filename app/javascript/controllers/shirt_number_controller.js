@@ -33,7 +33,7 @@ export default class extends Controller {
         this.resultTarget.innerText = this.inputTarget.value
         this.nameTarget.textContent = data.shirt_name
         this.positionTarget.textContent = this.abbreviatePosition(data.position)
-        this.imageTarget.setAttribute('src', data.body_image_url)
+        this.imageTarget.setAttribute('src', data.upper_image_url)
       })
   }
 
