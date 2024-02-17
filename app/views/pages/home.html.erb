@@ -1,2 +1,32 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=image_path("campeao-palmeiras.jpg") %> );">
+  <div class="container">
+    <h1>FAN <strong>CONNECT</strong></h1>
+    <p>Conecte-se com a paixão pelo esporte.</p>
+    <%= link_to "Começe o Quizz", "new_fan_shirt_number_path", class: "btn btn-flat" %>
+  </div>
+</div>
+
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <div class="card-fan">
+        <h2>Seja um Torcedor</h2>
+        <p>Registre-se e entre para a comunidade global de fãs do esporte.</p>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class ="card-fan">
+        <h2>Preencha o Quiz</h2>
+        <p>Responda perguntas cuidadosamente elaboradas para testar seu conhecimento e ganhar pontos.</p>
+      </div>
+    </div>
+     <div class="col-12 col-md-4">
+      <div class="card-fan">
+        <h2>Receba Resultados</h2>
+        <p>Veja como você se compara a outros fãs e descubra fatos interessantes sobre seus jogadores favoritos.</p>
+      </div>
+    </div>
+  </div>
+<div class="card-category my-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=image_path("allianz-parque-1.jpg") %> )">
+ <%= link_to "Teste Seus Conhecimentos Agora", "new_fan_shirt_number_path", style: "color: white; text-decoration: none;" %>
+</div>
