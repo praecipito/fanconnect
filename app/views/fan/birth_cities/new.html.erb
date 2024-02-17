@@ -1,6 +1,22 @@
-<h1><%= @birth_city %></h1>
-
-<%= simple_form_for @birth_city do |f| %>
-  <%= f.input :string %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center" data-controller="birth-city" data-birth-city-url-value="/fan/birth_cities">
+    <div class="col-12 col-md-8 col-lg-3">
+      <%= simple_form_for @birth_city do |f| %>
+        <h1 class="question">Qual a cidade de seu nascimento?</h1>
+          <%= f.input :string, as: :string, label: false, wrapper_html: { data: { birth_city_target: 'wrapper' } }, input_html: { data: { birth_city_target: 'input', action: 'change->birth-city#update keyup->birth-city#update' } }  %>
+        <div class="d-flex justify-content-center">
+          <%= button_tag 'Confirmar Cidade', type: :button, class: 'btn btn-success w-100 d-none', data: { action: 'click->birth-city#match', birth_city_target: 'match' } %>
+        </div>
+        <div class="row justify-content-center d-none" data-birth-city-target='card'>
+          <div class="col-12">
+            <!-- Aqui você pode incluir um partial específico ou alguma representação visual associada à cidade de nascimento -->
+            <%= render 'fan/fifa_card' %>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <%= f.submit 'Próximo', class: 'btn btn-success w-50 mt-3', data: { birth_city_target: 'submit' } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

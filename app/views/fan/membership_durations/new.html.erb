@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row justify-content-center" data-controller="favorite-membership_duration" data-favorite-membership_duration-url-value="/fan/favorite_membership_durations">
+    <div class="col-12 col-md-8 col-lg-3">
+      <%= simple_form_for @membership_duration do |f| %>
+        <h1 class="question">Quantos meses você é sócio torcedor?</h1>
+          <%= f.input :number, as: :integer, label: false, wrapper_html: { data: { favorite_membership_duration_target: 'wrapper' } }, input_html: { data: { favorite_membership_duration_target: 'input', action: 'change->favorite-membership_duration#update keyup->favorite-membership_duration#update' } }  %>
+        <div class="d-flex justify-content-center">
+          <%= button_tag 'Confirmar Bebida', type: :button, class: 'btn btn-success w-100 d-none', data: { action: 'click->favorite-membership_duration#match', favorite_membership_duration_target: 'match' } %>
+        </div>
+        <div class="row justify-content-center d-none" data-favorite-membership_duration-target='card'>
+          <div class="col-12">
+            <!-- Aqui, você pode renderizar um partial específico ou alguma representação visual associada à bebida favorita -->
+            <%= render 'fan/fifa_card' %>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <%= f.submit 'Próximo', class: 'btn btn-success w-50 mt-3', data: { favorite_membership_duration_target: 'submit' } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

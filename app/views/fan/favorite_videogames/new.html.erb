@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row justify-content-center" data-controller="favorite-videogame" data-favorite-videogame-url-value="/fan/favorite_videogames">
+    <div class="col-12 col-md-8 col-lg-3">
+      <%= simple_form_for @favorite_videogame do |f| %>
+        <h1 class="question">Qual é o seu jogo de game favorito?</h1>
+          <%= f.input :string, collection: Fan::FavoriteVideogame::OPTIONS.sort_by { _1 }, label: false, wrapper_html: { data: { favorite_videogame_target: 'wrapper' } }, input_html: { data: { favorite_videogame_target: 'input', action: 'change->favorite-videogame#update keyup->favorite-videogame#update' } }  %>
+        <div class="d-flex justify-content-center">
+          <%= button_tag 'Confirmar Bebida', type: :button, class: 'btn btn-success w-100 d-none', data: { action: 'click->favorite-videogame#match', favorite_videogame_target: 'match' } %>
+        </div>
+        <div class="row justify-content-center d-none" data-favorite-videogame-target='card'>
+          <div class="col-12">
+            <!-- Aqui, você pode renderizar um partial específico ou alguma representação visual associada à bebida favorita -->
+            <%= render 'fan/fifa_card' %>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <%= f.submit 'Próximo', class: 'btn btn-success w-50 mt-3', data: { favorite_videogame_target: 'submit' } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

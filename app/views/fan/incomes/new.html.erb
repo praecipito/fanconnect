@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row justify-content-center" data-controller="income" data-income-url-value="/fan/incomes">
+    <div class="col-12 col-md-8 col-lg-3">
+      <%= simple_form_for @income do |f| %>
+        <h1 class="question">Qual é a sua faixa de renda?</h1>
+          <%= f.input :renda, collection: Fan::Income::INCOMES, label: false, wrapper_html: { data: { income_target: 'wrapper' } }, input_html: { data: { income_target: 'input', action: 'change->income#update' } }  %>
+        <div class="d-flex justify-content-center">
+          <%= button_tag 'Confirmar Renda', type: :button, class: 'btn btn-success w-100 d-none', data: { action: 'click->income#match', income_target: 'match' } %>
+        </div>
+        <div class="row justify-content-center d-none" data-income-target='card'>
+          <div class="col-12">
+            <!-- Aqui, você pode renderizar um partial relevante ao contexto da renda -->
+            <%= render 'fan/fifa_card' %>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <%= f.submit 'Próximo', class: 'btn btn-success w-50 mt-3', data: { income_target: 'submit' } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
