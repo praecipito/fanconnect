@@ -8,7 +8,7 @@ class Fan::HeightsController < ApplicationController
     if @height.valid?
       @profile = current_user.profile
       @profile.update(height: @height.number.to_i)
-      redirect_to new_fan_shirt_number_path
+      redirect_to new_fan_weight_path
     else
       render :new, status: :unprocessable_entity
     end
