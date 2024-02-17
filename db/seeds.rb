@@ -40,7 +40,7 @@ CSV.foreach(players_csv_file_path, headers: true, header_converters: :symbol) do
     description: row[:player_text],
     body_image_url: row[:player_full_image_url],
     favorite_shirt_number: row[:shirt_number],
-    height: row[:height],
+    height: row[:height].match(/\d[\.,]\d+/)[0].gsub(',', '').to_i,
     position: row[:position],
     birth_city: row[:birth_city],
     upper_image_url: row[:upper_image_url]
