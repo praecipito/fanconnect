@@ -1,0 +1,6 @@
+<h1><%= @preferred_look %></h1>
+
+<%= simple_form_for @preferred_look do |f| %>
+  <%= f.input :string %>
+  <%= f.submit %>
+<% end %>
