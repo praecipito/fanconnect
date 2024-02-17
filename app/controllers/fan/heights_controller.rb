@@ -14,6 +14,17 @@ class Fan::HeightsController < ApplicationController
     end
   end
 
+  def search
+    @player = Player.where(height: params[:number].to_i)
+    respond_to do |format|
+      if @player.present?
+        format.json { render json: @player.sample }
+      else
+        format.json { render json: { shirt_name: 'Abel Ferreira', position: 'Técnico', body_image_url: "https://sep-bucket-prod.s3.amazonaws.com/wp-content/uploads/2024/01/0015_ABEL-FERREIRA.psd.png" }}
+      end
+    end
+  end
+
   private
 
   def height_params
