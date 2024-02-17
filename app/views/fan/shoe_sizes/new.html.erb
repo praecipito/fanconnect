@@ -1,6 +1,26 @@
-<h1><%= @shoe_size %></h1>
 
-<%= simple_form_for @shoe_size do |f| %>
-  <%= f.input :number %>
-  <%= f.submit %>
-<% end %>
+
+
+<div class="container">
+  <div class="row justify-content-center" data-controller="shoe-size" data-shoe-size-url-value="/fan/shoe_sizes">
+    <div class="col-12 col-md-8 col-lg-3">
+      <%= simple_form_for @shoe_size do |f| %>
+        <h1 class="question">Qual o seu tamanho da sua chuteira?</h1>
+          <%= f.input :number, as: :integer, label: false, wrapper_html: { data: { shoe_size_target: 'wrapper' } }, input_html: { data: { shoe_size_target: 'input', action: 'change->shoe-size#update keyup->shoe-size#update' } }  %>
+        <div class="d-flex justify-content-center">
+          <%= button_tag 'FanMatch!', type: :button, class: 'btn btn-success w-100 d-none', data: { action: 'click->shoe-size#match', shoe_size_target: 'match' } %>
+        </div>
+        <div class="row justify-content-center d-none" data-shoe-size-target='card'>
+          <div class="col-12">
+            <!-- Supondo que você tenha um partial para renderizar com base no tamanho do sapato, por exemplo, 'shoe_sizes/card' -->
+            <%= render 'fan/fifa_card' %>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <%= f.submit 'Próximo', class: 'btn btn-success w-50 mt-3', data: { shoe_size_target: 'submit' } %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
