@@ -8,7 +8,7 @@ class Fan::PreferredChannelsController < ApplicationController
     if @preferred_channel.valid?
       @profile = current_user.profile
       @profile.update(preferred_communication_channel: @preferred_channel.string)
-      # redirect_to new_fan_age_path
+      redirect_to new_fan_membership_duration_path
     else
       render :new, status: :unprocessable_entity
     end
