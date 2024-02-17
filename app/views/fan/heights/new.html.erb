@@ -1,6 +1,12 @@
-<h1><%= @height %></h1>
-
-<%= simple_form_for @height do |f| %>
-  <%= f.input :number %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center" data-controller="height">
+    <div class="col-12 col-md-4">
+      <h1><%= @height.class %></h1>
+      <%= simple_form_for @height do |f| %>
+      <%= f.input :number, as: :integer, input_html: { data: { action: "change->height#match" , height_target: 'input' }, min: 10, max: 220 } %>
+      <img data-height-target="image" src="https://www.pngall.com/wp-content/uploads/2018/04/Body-PNG-File.png" alt="Imagem"/>
+      <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
