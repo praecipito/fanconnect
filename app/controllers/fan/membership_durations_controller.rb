@@ -8,7 +8,7 @@ class Fan::MembershipDurationsController < ApplicationController
     if @membership_duration.valid?
       @profile = current_user.profile
       @profile.update(membership_duration: @membership_duration.number.to_i)
-      # redirect_to new_fan_XXXXX_path
+      redirect_to fan_idol_match_path
     else
       render :new, status: :unprocessable_entity
     end

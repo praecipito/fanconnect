@@ -25,5 +25,6 @@ Rails.application.routes.draw do
     resources :membership_durations, only: %i[new create]
     get 'shirt_numbers', to: 'shirt_numbers#search', as: :shirt_number_search
     get 'heights', to: 'heights#search', as: :height_search
+    get 'idolo', to: 'matches#show', as: :idol_match
   end
 end
