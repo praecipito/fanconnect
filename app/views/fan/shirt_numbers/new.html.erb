@@ -1,18 +1,28 @@
 <div class="container">
-  <div class="row justify-content-center" data-controller="shirt-number">
+  <div class="row justify-content-center" data-controller="shirt-number" data-shirt-number-url-value="/fan/shirt_numbers">
     <div class="col-12 col-md-8 col-lg-3">
-      <h1><%= @shirt_number.class %></h1>
+      <%= simple_form_for @shirt_number, html: { class: 'form-card' } do |f| %>
+        <h1><%= @shirt_number.class %></h1>
 
-      <%= simple_form_for @shirt_number do |f| %>
-        <%= f.input :number, as: :integer, input_html: { data: { shirt_number_target: 'input' } }  %>
-        <%= f.button :submit, class: 'btn btn-primary' %>
-      <% end %>
-
-      <div class="col-12 col-md-8 col-lg-3">
-        <div class="num-jogador" style="background-image: url(<%= image_path('bg-numero.png') %>)" data-shirt-number-target='result'>
-          <span class='num-camisa'>13</span>
+        <%= f.input :number, as: :integer, wrapper_html: { data: { shirt_number_target: 'wrapper' } }, input_html: { data: { shirt_number_target: 'input', action: 'change->shirt-number#update keyup->shirt-number#update' } }  %>
+        <%= f.submit 'Próximo', disabled: true, class: 'btn btn-primary d-none', data: { shirt_number_target: 'submit' } %>
+        <%= button_tag 'FanMatch!', type: :button, class: 'btn btn-primary', data: { action: 'click->shirt-number#match', shirt_number_target: 'match' } %>
+        <div class="row justify-content-center d-none" data-shirt-number-target='card'>
+          <div class="col-12">
+            <div class="match__card shadow-sm">
+              <div class="num-jogador" style="background-image: url(<%= image_path('bg-numero.png') %>)">
+                <div class="match__card__content match__card--inner-flex">
+                  <%= image_tag 'Luan-14.png' %>
+                  <span class='num-camisa' data-shirt-number-target='result'>13</span>
+                </div>
+                <p>Kayke</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+
+      <% end %>
     </div>
   </div>
+
 </div>

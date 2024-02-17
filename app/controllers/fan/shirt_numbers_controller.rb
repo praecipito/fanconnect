@@ -18,6 +18,16 @@ class Fan::ShirtNumbersController < ApplicationController
 
   end
 
+  def search
+    @player = Player.where(favorite_shirt_number: params[:number])
+    respond_to do |format|
+      if @player
+        format.json { render json: @player.first }
+      else
+      end
+    end
+  end
+
   private
 
   def shirt_number_params
