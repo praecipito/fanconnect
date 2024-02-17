@@ -1,6 +1,22 @@
-<h1><%= @merch_interest %></h1>
-
-<%= simple_form_for @merch_interest do |f| %>
-  <%= f.input :interesse, collection: Fan::MerchInterest::MERCH %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center" data-controller="favorite-merch_interests" data-favorite-merch_interests-url-value="/fan/favorite_merch_interestss">
+    <div class="col-12 col-md-8 col-lg-3">
+      <%= simple_form_for @merch_interest do |f| %>
+        <h1 class="question">Gostaria de receber nossas promoções?</h1>
+          <%= f.input :interesse, as: :string, label: false, wrapper_html: { data: { favorite_merch_interests_target: 'wrapper' } }, input_html: { data: { favorite_merch_interests_target: 'input', action: 'change->favorite-merch_interests#update keyup->favorite-merch_interests#update' } }  %>
+        <div class="d-flex justify-content-center">
+          <%= button_tag 'Confirmar Bebida', type: :button, class: 'btn btn-success w-100 d-none', data: { action: 'click->favorite-merch_interests#match', favorite_merch_interests_target: 'match' } %>
+        </div>
+        <div class="row justify-content-center d-none" data-favorite-merch_interests-target='card'>
+          <div class="col-12">
+            <!-- Aqui, você pode renderizar um partial específico ou alguma representação visual associada à bebida favorita -->
+            <%= render 'fan/fifa_card' %>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <%= f.submit 'Próximo', class: 'btn btn-success w-50 mt-3', data: { favorite_merch_interests_target: 'submit' } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
