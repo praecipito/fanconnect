@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :sport_interests, only: %i[new create]
     resources :merch_interests, only: %i[new create]
     resources :preferred_channels, only: %i[new create]
+    resources :membership_durations, only: %i[new create]
     get 'shirt_numbers', to: 'shirt_numbers#search', as: :shirt_number_search
     get 'heights', to: 'heights#search', as: :height_search
   end
