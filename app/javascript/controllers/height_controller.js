@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   updateSize() {
-    this.imageTarget.style.width = `${this.inputTarget.value * 1.75}px`;
+    this.imageTarget.style.scale = `${this.inputTarget.value * 1.75}px`;
   }
 
   match() {
