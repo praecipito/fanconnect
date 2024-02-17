@@ -6,14 +6,12 @@ export default class extends Controller {
     url: String
   }
 
-  static targets = ['wrapper', 'input', 'result', 'submit', 'match', 'card']
+  static targets = ['wrapper', 'input', 'result', 'submit', 'match', 'card', 'image', 'name', 'position']
   connect() {
-    console.log(this.cardTarget);
     console.log(this.urlValue);
   }
 
   update() {
-    this.resultTarget.innerText = this.inputTarget.value
   }
 
   match() {
@@ -24,11 +22,31 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         console.log(data)
+        // hide inputs and display fifa card
         this.wrapperTarget.classList.add('d-none')
         this.cardTarget.classList.remove('d-none')
         this.matchTarget.classList.add('d-none')
         this.submitTarget.classList.remove('d-none')
         this.submitTarget.disabled = false
+
+        // update card info
+        this.resultTarget.innerText = this.inputTarget.value
+        this.nameTarget.textContent = data.shirt_name
+        this.positionTarget.textContent = this.abbreviatePosition(data.position)
+        this.imageTarget.setAttribute('src', data.body_image_url)
       })
+  }
+
+  abbreviatePosition(name) {
+    const positions = {
+      'Goleiro': 'GK',
+      'Lateral-Direito': 'LD',
+      'Lateral-Esquerdo': 'LE',
+      'Zagueiro': 'ZAG',
+      'Meio-Campista': 'MC',
+      'Atacante': 'AT',
+    }
+
+    return positions[name]
   }
 }
