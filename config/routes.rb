@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :preferred_looks, only: %i[new create]
     resources :favorite_videogames, only: %i[new create]
     resources :sport_interests, only: %i[new create]
+    resources :merch_interests, only: %i[new create]
     get 'shirt_numbers', to: 'shirt_numbers#search', as: :shirt_number_search
   end
 end
