@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   match() {
-    this.imageTarget.style.width = `${this.inputTarget.value}px`;
+    this.imageTarget.style.width = `${this.inputTarget.value * 2}px`;
   }
 }
 
