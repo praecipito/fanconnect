@@ -26,3 +26,7 @@ CSV.foreach(csv_file_path, headers: true, header_converters: :symbol) do |row|
   p profile
   counter += 1
 end
+
+players_csv_file_path = Rails.root.join('lib', 'scraper', 'players.csv')
+
+CSV.foreach()
