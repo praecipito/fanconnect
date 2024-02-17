@@ -5,7 +5,6 @@ class Fan::MerchInterestsController < ApplicationController
 
   def create
     @merch_interest = Fan::MerchInterest.new(merch_interest_params)
-    raise
     if @merch_interest.valid?
       # atualizar usuario com o vlor vindo do form
       # Como o profile vai pertencer à um usuário. acessamos o profile do user
