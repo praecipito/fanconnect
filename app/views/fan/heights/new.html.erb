@@ -3,11 +3,47 @@
     <div class="col-12 col-md-4">
       <h1><%= @height.class %></h1>
       <%= simple_form_for @height do |f| %>
-        <%= f.input :number, as: :integer, input_html: { data: { action: "change->height#match keyup->height#match" , height_target: 'input' }, min: 10, max: 220 } %>
+        <%= f.input :number, as: :integer, input_html: { data: { action: "change->height#updateSize keyup->height#updateSize" , height_target: 'input' }, value: 175, min: 10, max: 220 } %>
+        <%= button_tag 'FanMatch!', type: :button, class: 'btn btn-primary w-100 mb-3', data: { action: 'click->height#match', height_target: 'match' } %>
+
+        <%# IMAGEM DEFAULT QUE ALTERA TAMANHO EM RELAÇÃO AO INPUT %>
+        <%# ESCONDIDA QUANDO CLICAMOS EM FanMatch! %>
         <div class="d-flex justify-content-center">
-          <img width="100%" data-height-target="image" src="https://www.pngall.com/wp-content/uploads/2018/04/Body-PNG-File.png" alt="Imagem"/>
+          <img width="75%" data-height-target="image" src="https://www.pngall.com/wp-content/uploads/2018/04/Body-PNG-File.png" alt="Imagem"/>
         </div>
-        <%= f.submit %>
+
+        <%# FIFA CARD %>
+        <div class="row justify-content-center d-none" data-height-target='card'>
+          <div class="col-12">
+            <div class="fut-player-card" style="background-image: url(<%= image_path 'card_bg_shine.png' %>);">
+              <!-- Player Card Top-->
+              <div class="player-card-top">
+                <div class="player-master-info">
+                </div>
+                <div class="player-picture">
+                  <%= image_tag 'Luan-14.png', data: { height_target: 'imageCard' } %>
+                  <div class="player-extra">
+                  </div>
+                </div>
+              </div>
+              <!-- Player Card Bottom-->
+              <div class="player-card-bottom">
+                <div class="player-info">
+                  <!-- Player Name-->
+                  <div class="player-name"><span data-height-target='name'>Kayke</span></div>
+                  <!-- Player Features-->
+                  <div class="player-features flex-column align-items-center">
+                    <div class="player-feature-title mb-2">Altura</div>
+                    <div class="player-feature-value fw-bold fs-2" data-height-target='result'>13</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <%# SUBMIT FORM BUTTON %>
+        <%= f.submit 'Próximo', disabled: true, class: 'btn btn-primary w-100 d-none', data: { height_target: 'submit' }  %>
       <% end %>
     </div>
   </div>
