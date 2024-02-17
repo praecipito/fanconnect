@@ -1,0 +1,6 @@
+<h1><%= @merch_interest %></h1>
+
+<%= simple_form_for @merch_interest do |f| %>
+  <%= f.input :interesse, collection: Fan::MerchInterest::MERCH %>
+  <%= f.submit %>
+<% end %>
