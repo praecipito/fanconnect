@@ -1,0 +1,6 @@
+<h1><%= @favorite_food %></h1>
+
+<%= simple_form_for @favorite_food do |f| %>
+  <%= f.input :string %>
+  <%= f.submit %>
+<% end %>

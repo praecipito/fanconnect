@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :height, only: %i[new create]
+
   # HOST sign_up/home/email_address/new
   # form/shirt_names/new
   # form/shirt_names
@@ -16,9 +16,11 @@ Rails.application.routes.draw do
     resources :shirt_numbers, only: %i[new create]
     resources :shoe_sizes, only: %i[new create]
     resources :number_of_children, only: %i[new create]
+    resources :heights, only: %i[new create]
     resources :weights, only: %i[new create]
     resources :birth_cities, only: %i[new create]
     resources :incomes, only: %i[new create]
+    resources :favorite_foods, only: %i[new create]
     get 'shirt_numbers', to: 'shirt_numbers#search', as: :shirt_number_search
   end
 end
