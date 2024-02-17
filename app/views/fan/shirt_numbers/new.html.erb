@@ -1,22 +1,23 @@
 
-<div class="background-image">
-  <div class="container">
-    <div class="row justify-content-center" data-controller="shirt-number" data-shirt-number-url-value="/fan/shirt_numbers">
-      <div class="col-12 col-md-8 col-lg-3">
-        <%= simple_form_for @shirt_number do |f| %>
-          <h1><%= @shirt_number.class %></h1>
-
-          <%= f.input :number, as: :integer, wrapper_html: { data: { shirt_number_target: 'wrapper' } }, input_html: { data: { shirt_number_target: 'input', action: 'change->shirt-number#update keyup->shirt-number#update' } }  %>
-          <%= button_tag 'FanMatch!', type: :button, class: 'btn btn-primary w-100', data: { action: 'click->shirt-number#match', shirt_number_target: 'match' } %>
-          <div class="row justify-content-center d-none" data-shirt-number-target='card'>
-            <div class="col-12">
-              <%= render 'fan/fifa_card' %>
-              <%= f.submit 'Próximo', disabled: true, class: 'btn btn-primary w-100 mt-3 d-none', data: { shirt_number_target: 'submit' } %>
+<div class="container">
+  <div class="row justify-content-center" data-controller="shirt-number" data-shirt-number-url-value="/fan/shirt_numbers">
+    <div class="col-12 col-md-8 col-lg-3">
+      <%= simple_form_for @shirt_number do |f| %>
+        <h1 class="question">Qual o seu número favorito de camisa?</h1>
+          <%= f.input :number, as: :integer, label: false, wrapper_html: { data: { shirt_number_target: 'wrapper' } }, input_html: { data: { shirt_number_target: 'input', action: 'change->shirt-number#update keyup->shirt-number#update' } }  %>
+        <div class="d-flex justify-content-center">
+          <%= button_tag 'FanMatch!', type: :button, class: 'btn btn-success w-100', data: { action: 'click->shirt-number#match', shirt_number_target: 'match' } %>
+        </div>
+        <div class="row justify-content-center d-none" data-shirt-number-target='card'>
+          <div class="col-12">
+            <%= render 'fan/fifa_card' %>
+            <div class="d-flex justify-content-center">
+              <%= f.submit 'Próximo', disabled: true, class: 'btn btn-success w-50 mt-3 d-none', data: { shirt_number_target: 'submit' } %>
             </div>
           </div>
+        </div>
 
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
