@@ -30,7 +30,7 @@ require 'csv'
 
 
 # # unica coluna que não estamos usando dos players scraped é `birth_date`
-
+Player.destroy_all
 players_csv_file_path = Rails.root.join('lib', 'scraper', 'data', 'players.csv')
 CSV.foreach(players_csv_file_path, headers: true, header_converters: :symbol) do |row|
   Player.create!(
@@ -42,6 +42,7 @@ CSV.foreach(players_csv_file_path, headers: true, header_converters: :symbol) do
     favorite_shirt_number: row[:shirt_number],
     height: row[:height],
     position: row[:position],
-    birth_city: row[:birth_city]
+    birth_city: row[:birth_city],
+    upper_image_url: row[:upper_image_url]
   )
 end
