@@ -1,6 +1,19 @@
-<h1><%= @shirt_number %></h1>
+<div class="container">
+  <div class="row justify-content-center" data-controller="shirt-number" data-shirt-number-url-value="/fan/shirt_numbers">
+    <div class="col-12 col-md-8 col-lg-3">
+      <%= simple_form_for @shirt_number do |f| %>
+        <h1><%= @shirt_number.class %></h1>
 
-<%= simple_form_for @shirt_number do |f| %>
-  <%= f.input :number %>
-  <%= f.submit %>
-<% end %>
+        <%= f.input :number, as: :integer, wrapper_html: { data: { shirt_number_target: 'wrapper' } }, input_html: { data: { shirt_number_target: 'input', action: 'change->shirt-number#update keyup->shirt-number#update' } }  %>
+        <%= button_tag 'FanMatch!', type: :button, class: 'btn btn-primary w-100', data: { action: 'click->shirt-number#match', shirt_number_target: 'match' } %>
+        <div class="row justify-content-center d-none" data-shirt-number-target='card'>
+          <div class="col-12">
+            <%= render 'fan/fifa_card' %>
+            <%= f.submit 'Próximo', disabled: true, class: 'btn btn-primary w-100 mt-3 d-none', data: { shirt_number_target: 'submit' } %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

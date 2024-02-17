@@ -18,7 +18,9 @@ Rails.application.routes.draw do
     resources :weights, only: %i[new create]
     resources :birth_cities, only: %i[new create]
     resources :incomes, only: %i[new create]
+    get 'shirt_numbers', to: 'shirt_numbers#search', as: :shirt_number_search
   end
+
 end
 
 

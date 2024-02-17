@@ -1,0 +1,23 @@
+.match__card {
+  background-color: darkgreen;
+  border-radius: 8px;
+  img {
+    width: 60px;
+  }
+}
+
+.match__card--inner-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.match__card .num-jogador p {
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-size: 12vw;
+  font-weight: bold;
+  -webkit-text-fill-color: gold;
+}
