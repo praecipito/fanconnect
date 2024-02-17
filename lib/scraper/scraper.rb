@@ -33,6 +33,10 @@ def scrape_player(url)
   shirt_number = doc.search('.info-jogadores .num-camisa').first.text.strip.to_i
   # Text descritivo
   player_text = doc.search('.row.conteudo-jogador .txt-jogador').text.strip
+
+  # Imagem atleta tronco
+  upper_image_url = doc.search('.item.selecionado img').first.attribute('src').value
+
   # Exgtraindo container com dados do atleta
   player_data = []
   doc.search('.row.conteudo-jogador .dados-jogador .row.quadro-content .col').each do |element|
@@ -58,8 +62,8 @@ def scrape_player(url)
     birth_date:,
     birth_city:,
     height:,
-    player_full_image_url:
+    player_full_image_url:,
+    upper_image_url:
   }
-
   player
 end
