@@ -1,0 +1,6 @@
+<h1><%= @income %></h1>
+
+<%= simple_form_for @income do |f| %>
+  <%= f.input :renda, collection: Fan::Income::INCOMES %>
+  <%= f.submit %>
+<% end %>

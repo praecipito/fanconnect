@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :number_of_children, only: %i[new create]
     resources :weights, only: %i[new create]
     resources :birth_cities, only: %i[new create]
+    resources :incomes, only: %i[new create]
   end
 end
 
